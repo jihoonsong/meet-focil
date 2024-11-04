@@ -1,0 +1,37 @@
+---
+layout: default
+post_class: post-template
+---
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-10 flex-first flex-md-unordered">
+            <!-- Title -->
+            <div class="mainheading">
+                <h1 class="posttitle text-center">{{ page.title }}</h1>
+            </div>
+
+            <!-- Image -->
+            {% if page.image %}
+                <img class="article-image img-fluid mx-auto d-block" src="{{ site.baseurl }}/{{ page.image }}" alt="{{ page.title }}"> 
+            {% endif %}
+
+            <!-- Content -->
+            <div class="article-post">
+                {{content}}
+            </div>
+
+            <!-- Pagination -->
+            <div class="row PageNavigation d-flex justify-content-between font-weight-bold">
+                {% if page.next.url %}
+                    <a class="next d-block col-md-6" href="{{page.next.url}}">&laquo; {{page.next.title}}</a>
+                {% else %}
+                    <a class="next d-block col-md-6"></a>
+                {% endif %}
+                {% if page.previous.url %}
+                    <a class="prev d-block col-md-6 text-lg-right" href="{{page.previous.url}}">{{page.previous.title}} &raquo;</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>

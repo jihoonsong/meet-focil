@@ -1,0 +1,17 @@
+name: FOCIL
+title: FOCIL
+email: jihoonsong.dev@gmail.com
+description: A website for FOCIL (Fork-Choice Enforced Inclusion Lists)
+logo: "assets/images/logo.png"
+baseurl: ""
+permalink: /:title/
+favicon: "assets/images/logo.png"
+plugins:
+  - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-sitemap
+paginate: 50 # Draw all posts in one page for simplicity.
+paginate_path: /page:num/
+exclude:
+  - LICENSE.md
+  - README.md
