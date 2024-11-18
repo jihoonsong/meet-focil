@@ -8,15 +8,15 @@ title: Home
 
 This document lists blockers and tracks conversations related to FOCIL. It is meant for researchers interested in contributing to its development.
 
-## Design Parameters {#design-parameters}
+## Properties {#properties}
 
-- Commitee-based: 16 committee members create local inclusion lists, which are aggregated into one aggregate inclusion list.
-- Size: Each local inclusion list is at most 8 kilobytes each. There could be around 20 average sized transactions in each local inclusion list so around 320 average sized transactions in all local inclusion lists. A block contains around 100-200 transactions.
-- Conditional: The aggregate inclusion list does not constrain the beacon block validity if the execution payload is full.
-- Spot: The aggregate inclusion list created in slot N constrains the validity of the beacon block in slot N.
-- Unordered: The aggregate inclusion list does not impose ordering constraints on the execution payload.
-- Anywhere-in-block: Transactions from the aggregate inclusion list could be included anywhere in the execution payload.
-- Expiring: The aggregate inclusion list created in slot N only constrains the validity of the beacon block in slot N and does not constrain the validity of later beacon blocks.
+- Commitee-based: 16 committee members create inclusion lists.
+- Size: Each local inclusion list is at most 8 kilobytes each. There could be around 40 average sized transactions in each local inclusion list so around 640 average sized transactions in all inclusion lists. A block contains around 100-200 transactions.
+- Conditional: Transactions in inclusion lists do not constrain the beacon block validity if the execution payload is full.
+- Same-slot: Transactions in inclusion lists created in slot N constrain the validity of the beacon block in slot N.
+- Unordered: Transactions in inclusion lists do not impose ordering constraints on the execution payload.
+- Anywhere-in-block: Transactions in inclusion lists could be included anywhere in the execution payload.
+- Expiring: Transactions in inclusion lists created in slot N only constrain the validity of the beacon block in slot N and do not constrain the validity of later beacon blocks.
 
 ## Resources {#resources}
 
@@ -25,8 +25,9 @@ This document lists blockers and tracks conversations related to FOCIL. It is me
 - [**FOCIL Resource Design Considerations**](https://hackmd.io/@ttsao/focil-resource-considerations#Proposer-Edge-Case): The resources FOCIL demands throughout an Ethereum slot.
 - [**On Multi-proposer Gadgets and Protocols**](https://hackmd.io/xz1UyksETR-pCsazePMAjw): A note comparing FOCIL and BRAID, a multiple concurrent proposer design, on their properties and stages of research and development.
 - [**Block construction session**](https://www.notion.so/bd611621250f45948eff05fcf6a34067?pvs=21): A note placing FOCIL in the context of various block construction mechanisms such as ePBS and APS.
+- [**EIP-7805: Fork-choice enforced Inclusion Lists (FOCIL)**](https://eips.ethereum.org/EIPS/eip-7805): Allow a committee of validators to force-include a set of transactions in every block.
 
-## Problem Gallery {#problem-gallery}
+## FOCIL Gallery {#focil-gallery}
 
 This gallery contains notes with problem statements of various subproblems related to FOCIL.
 
