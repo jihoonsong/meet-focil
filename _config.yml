@@ -5,7 +5,7 @@ description: A website for FOCIL (Fork-Choice Enforced Inclusion Lists)
 logo: "assets/images/logo.png"
 baseurl: ""
 permalink: /:title/
-favicon: "assets/images/logo.png"
+favicon: "assets/images/favicon.ico"
 plugins:
   - jekyll-paginate
   - jekyll-seo-tag
