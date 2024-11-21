@@ -3,7 +3,7 @@ layout: post
 author: Julian Ma
 author_pfp: "assets/profile_pictures/julian_ma.jpg"
 author_link: "https://ethresear.ch/u/julian/summary"
-title:  "Transaction Invalidation"
+title: "Transaction Invalidation"
 publish_date: "Sep 17, 2024"
 thumbnail: "assets/thumbnails/transaction_invalidation.jpg"
 image: "assets/images/transaction_invalidation.png"

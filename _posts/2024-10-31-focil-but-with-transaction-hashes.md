@@ -3,7 +3,7 @@ layout: post
 author: soispoke
 author_pfp: "assets/profile_pictures/soispoke.jpg"
 author_link: "https://ethresear.ch/u/soispoke/summary"
-title:  "FOCIL, but with transaction hashes"
+title: "FOCIL, but with transaction hashes"
 publish_date: "Oct 31, 2024"
 thumbnail: "assets/thumbnails/focil_but_with_transaction_hashes.jpg"
 image: "assets/images/focil_but_with_transaction_hashes.png"

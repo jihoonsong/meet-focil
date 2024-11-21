@@ -10,21 +10,22 @@ This document lists blockers and tracks conversations related to FOCIL. It is me
 
 ## Properties {#properties}
 
-- Committee-based: FOCIL relies on a committee of multiple validators, rather than a single proposer, to construct and broadcast ILs. This approach significantly reduces the surface for bribery and extortion attacks and strengthens censorship resistance.
-- Fork-choice enforced: FOCIL incorporates the force-inclusion mechanism into the fork-choice rule, an integral component of the consensus process, thereby preventing any actor from bypassing the system. Attesters vote only for blocks that include transactions from a set of ILs provided by the IL committee and that satisfy the IL constraints. Any block failing to meet these criteria will not be voted on by the attesters, and therefore cannot be canonical.
-- Same-slot: With FOCIL running in parallel with the block building process for slot N+1 during slot N, the constraints imposed on block B for slot N+1 can include transactions submitted during slot N. This represents a strict improvement over forward IL designs like EIP-7547, where the forward property introduced a 1-slot delay.
-- Conditional inclusion: FOCIL adopts conditional inclusion, accepting blocks that may lack some transactions from ILs if they cannot append the transactions to the end of the block or if they are full.
-- Anywhere-in-block: FOCIL is unopinionated about the placement of transactions from ILs within a block. This reduces incentives for sophisticated actors to use side channels to bypass the mechanism. Combined with conditional inclusion, this flexibility makes the emergence of off-protocol markets less attractive.
-- No incentive mechanism: FOCIL does not provide explicit rewards for IL committee members participating in the mechanism. We believe that the added complexity of implementing a transaction fee system for FOCIL is not justified. Instead, we rely on altruistic behavior, as FOCIL requires only a 1-out-of-N honesty assumption from IL committee members for the mechanism to work as intended.
+- **Committee-based**: FOCIL relies on a committee of multiple validators, rather than a single proposer, to construct and broadcast ILs. This approach significantly reduces the surface for bribery and extortion attacks and strengthens censorship resistance.
+- **Fork-choice enforced**: FOCIL incorporates the force-inclusion mechanism into the fork-choice rule, an integral component of the consensus process, thereby preventing any actor from bypassing the system. Attesters vote only for blocks that include transactions from a set of ILs provided by the IL committee and that satisfy the IL constraints. Any block failing to meet these criteria will not be voted on by the attesters, and therefore cannot be canonical.
+- **Same-slot**: With FOCIL running in parallel with the block building process for slot N+1 during slot N, the constraints imposed on block B for slot N+1 can include transactions submitted during slot N. This represents a strict improvement over forward IL designs like EIP-7547, where the forward property introduced a 1-slot delay.
+- **Conditional inclusion**: FOCIL adopts conditional inclusion, accepting blocks that may lack some transactions from ILs if they cannot append the transactions to the end of the block or if they are full.
+- **Anywhere-in-block**: FOCIL is unopinionated about the placement of transactions from ILs within a block. This reduces incentives for sophisticated actors to use side channels to bypass the mechanism. Combined with conditional inclusion, this flexibility makes the emergence of off-protocol markets less attractive.
+- **No incentive mechanism**: FOCIL does not provide explicit rewards for IL committee members participating in the mechanism. We believe that the added complexity of implementing a transaction fee system for FOCIL is not justified. Instead, we rely on altruistic behavior, as FOCIL requires only a 1-out-of-N honesty assumption from IL committee members for the mechanism to work as intended.
 
 ## Resources {#resources}
 
 - [**EIP-7805: Fork-choice enforced Inclusion Lists (FOCIL)**](https://eips.ethereum.org/EIPS/eip-7805): Allow a committee of validators to force-include a set of transactions in every block.
 - [**Fork-Choice enforced Inclusion Lists (FOCIL)**](https://ethresear.ch/t/fork-choice-enforced-inclusion-lists-focil-a-simple-committee-based-inclusion-list-proposal/19870): A simple committee-based inclusion list proposal: The initial proposal of FOCIL.
-- [**On Multi-proposer Gadgets and Protocols**](https://hackmd.io/xz1UyksETR-pCsazePMAjw): A note comparing FOCIL and BRAID, a multiple concurrent proposer design, on their properties and stages of research and development.
 - [**FOCIL CL and EL Workflow**](https://ethresear.ch/t/focil-cl-el-workflow/20526): Outline of the latest FOCIL implementation, defines the roles and duties of IL committee members, nodes, proposers, and attesters. We also address potential edge cases (e.g., equivocation, invalidation) and how to mitigate them.
 - [**FOCIL Resource Design Considerations**](https://hackmd.io/@ttsao/focil-resource-considerations): The resources FOCIL demands throughout an Ethereum slot.
-- [**Block construction session**](https://www.notion.so/bd611621250f45948eff05fcf6a34067?pvs=21): A note placing FOCIL in the context of various block construction mechanisms such as ePBS and APS.
+- [**On Multi-proposer Gadgets and Protocols**](https://hackmd.io/xz1UyksETR-pCsazePMAjw): A note comparing FOCIL and BRAID, a multiple concurrent proposer design, on their properties and stages of research and development.
+- [**Block construction session**](https://efdn.notion.site/Block-construction-session-bd611621250f45948eff05fcf6a34067): A note placing FOCIL in the context of various block construction mechanisms such as ePBS and APS.
+- [**FOCIL session - Devcon SEA L1 R&D Workshop**](https://efdn.notion.site/FOCIL-session-Devcon-SEA-L1-R-D-Workshop-134d9895554180b5b0fec6e17dbbb74d): A session from Devcon SEA to discuss FOCIL design and implementation.
 
 ## FOCIL Gallery {#focil-gallery}
 
