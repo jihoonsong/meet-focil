@@ -6,16 +6,16 @@ title: Home
 <!-- Main Content -->
 ## Description {#description}
 
-This censorship resistant website tracks topics of interest and lists blockers related to FOCIL EIP-7805.
+This censorship resistant website tracks topics of interest and lists blockers related to [**EIP-7805: Fork-choice enforced Inclusion Lists (FOCIL)**](https://eips.ethereum.org/EIPS/eip-7805).
 
 ## Properties {#properties}
 
 - **Committee-based**: FOCIL relies on a committee of multiple validators, rather than a single proposer, to construct and broadcast ILs. This approach significantly reduces the surface for bribery and extortion attacks and strengthens censorship resistance.
 - **Fork-choice enforced**: FOCIL incorporates the force-inclusion mechanism into the fork-choice rule, an integral component of the consensus process, thereby preventing any actor from bypassing the system. Attesters vote only for blocks that include transactions from a set of ILs provided by the IL committee and that satisfy the IL constraints. Any block failing to meet these criteria will not be voted on by the attesters, and therefore cannot be canonical.
-- **Same-slot**: With FOCIL running in parallel with the block building process for slot N+1 during slot N, the constraints imposed on block B for slot N+1 can include transactions submitted during slot N. This represents a strict improvement over forward IL designs like EIP-7547, where the forward property introduced a 1-slot delay.
+- **Same-slot**: With FOCIL running in parallel with the block building process for `slot N+1` during `slot N`, the constraints imposed on `block B` for `slot N+1` can include transactions submitted during `slot N`. This represents a strict improvement over forward IL designs like [EIP-7547](https://eips.ethereum.org/EIPS/eip-7547), where the forward property introduced a 1-slot delay.
 - **Conditional inclusion**: FOCIL adopts conditional inclusion, accepting blocks that may lack some transactions from ILs if they cannot append the transactions to the end of the block or if they are full.
 - **Anywhere-in-block**: FOCIL is unopinionated about the placement of transactions from ILs within a block. This reduces incentives for sophisticated actors to use side channels to bypass the mechanism. Combined with conditional inclusion, this flexibility makes the emergence of off-protocol markets less attractive.
-- **No incentive mechanism**: FOCIL does not provide explicit rewards for IL committee members participating in the mechanism. We believe that the added complexity of implementing a transaction fee system for FOCIL is not justified. Instead, we rely on altruistic behavior, as FOCIL requires only a 1-out-of-N honesty assumption from IL committee members for the mechanism to work as intended.
+- **No incentive mechanism**: FOCIL does not provide explicit rewards for IL committee members participating in the mechanism. We believe that the added complexity of implementing a transaction fee system for FOCIL is not justified. Instead, we rely on altruistic behavior, as FOCIL requires only a `1-out-of-N` honesty assumption from IL committee members for the mechanism to work as intended.
 
 ## Resources {#resources}
 
@@ -45,7 +45,7 @@ This gallery contains notes with problem statements of various subproblems relat
 ## Open Problems {#open-problems}
 
 - [**FOCIL Transaction Fee Mechanism**](https://efdn.notion.site/FOCIL-Transaction-Fee-Mechanism-68c2a76c57af4e0c88057ded71983f8b): What is the best way to charge fees and distribute these fees for inclusion in the inclusion list? How should “best” be defined?
-- [**Compatibility with other protocol upgrades**](https://efdn.notion.site/Compatibility-with-other-protocol-upgrades-104d989555418062921ff19f2dd693cf): We need to assess the potential synergies and conflicts between FOCIL and other protocol upgrades like Account Abstraction (EIP-7702), ePBS (EIP-7732), PeerDAS, etc.
+- [**Compatibility with other protocol upgrades**](https://efdn.notion.site/Compatibility-with-other-protocol-upgrades-104d989555418062921ff19f2dd693cf): We need to assess the potential synergies and conflicts between FOCIL and other protocol upgrades like [Account Abstraction (EIP-7702)]((https://eips.ethereum.org/EIPS/eip-7702)), [ePBS (EIP-7732)](https://eips.ethereum.org/EIPS/eip-7732), [PeerDAS (EIP-7594)](https://eips.ethereum.org/EIPS/eip-7594), etc.
 - [**IL Size**](https://efdn.notion.site/IL-Size-104d9895554180acb8f1da65a546598b): Inclusion lists must likely be bounded in size to prevent excessive bandwidth usage. How do we determine the optimal size of the inclusion lists?
 - [**Multi-slot MEV Prevention via FOCIL**](https://efdn.notion.site/Multi-slot-MEV-Prevention-via-FOCIL-02df82ac72944ec2b4288aa53100c814): FOCIL enables multiple proposers to force include transactions into a block. What types of multi-slot MEV does this prevent?
 
