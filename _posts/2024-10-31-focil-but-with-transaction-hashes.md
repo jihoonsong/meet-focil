@@ -7,7 +7,7 @@ title: "FOCIL, but with transaction hashes"
 publish_date: "Oct 31, 2024"
 thumbnail: "assets/thumbnails/focil_but_with_transaction_hashes.jpg"
 image: "assets/images/focil_but_with_transaction_hashes.png"
-excerpt: "Other transactions in the execution payload could invalidate transactions in inclusion lists. Invalid transactions should not be written on-chain because it would expose free data availability (DA). How is free DA prevented in FOCIL? How does FOCIL prevent an adversary stuffing the IL with invalid transactions?"
+excerpt: "In this note, we explore the pros and cons of propagating only transaction hashes instead of full transactions on the consensus layer peer-to-peer network."
 ---
 
 ## Introduction
