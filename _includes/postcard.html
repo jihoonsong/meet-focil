@@ -1,9 +1,9 @@
-<div class="col-lg-4 col-md-6 mb-30px">
+<div class="col-lg-4 col-md-6" style="margin-top: 0.6rem; margin-bottom: 0.6rem;">
     <div class="card h-100">
         <div class="card-image">
             <a href="{{ site.baseurl }}{{ post.url }}">
-                {% if post.image %}
-                    <img class="img-fluid" src="{{ site.baseurl }}/{{ post.image }}" alt="{{ post.title }}"> 
+                {% if post.thumbnail %}
+                    <img class="img-fluid d-none d-md-block" src="{{ site.baseurl }}/{{ post.thumbnail }}" alt="{{ post.title }}"> 
                 {% endif %}
             </a>
         </div>

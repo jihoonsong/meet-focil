@@ -11,6 +11,19 @@ post_class: post-template
                 <h1 class="posttitle text-center">{{ page.title }}</h1>
             </div>
 
+            <!-- Author -->
+            <div class="author-section">
+                <a class="author-pfp no-color" href="{{ page.author_link }}">
+                    <img src="{{ site.baseurl }}/{{ page.author_pfp }}" alt="Author PFP">
+                </a>
+                <div class="author-details">
+                    <a class="no-color" href="{{ page.author_link }}">
+                        <p class="author-name">{{ page.author }}</p>
+                    </a>
+                    <p class="author-date">Published on {{ page.publish_date }}</p>
+                </div>
+            </div>
+
             <!-- Image -->
             {% if page.image %}
                 <img class="article-image img-fluid mx-auto d-block" src="{{ site.baseurl }}/{{ page.image }}" alt="{{ page.title }}"> 

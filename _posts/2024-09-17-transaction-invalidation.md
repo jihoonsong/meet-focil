@@ -1,7 +1,12 @@
 ---
 layout: post
+author: Julian Ma
+author_pfp: "assets/profile_pictures/julian_ma.jpg"
+author_link: "https://ethresear.ch/u/julian/summary"
 title:  "Transaction Invalidation"
-image: "assets/images/5.png"
+publish_date: "Sep 17, 2024"
+thumbnail: "assets/thumbnails/transaction_invalidation.jpg"
+image: "assets/images/transaction_invalidation.png"
 excerpt: "Other transactions in the execution payload could invalidate transactions in inclusion lists. Invalid transactions should not be written on-chain because it would expose free data availability (DA). How is free DA prevented in FOCIL? How does FOCIL prevent an adversary stuffing the IL with invalid transactions?"
 ---
 
@@ -16,11 +21,11 @@ Attesters enforce the inclusion list based on their view of broadcasted inclusio
 
 Another way invalid transactions can cause problems is if many transactions in the inclusion list are invalid. This means the inclusion list does not do a good job of surfacing those transactions that would benefit from being included. FOCIL combats this by the inclusion rule committee members run to construct their inclusion lists.
 
-First, committee members try to execute the previous execution payload before constructing their local inclusion list. This helps them see which transactions are invalid based on the poststate of the last block. Secondly, committee members are free to choose any inclusion rule that they believe best selects transactions that benefit from being in the inclusion list. For example, committee members could choose transactions based on how long they have been in the mempool, their priority fee, a combination of the two, or any other [heuristic](https://x.com/arindamsingh03/status/1838541552387264673?s=61) they believe is valuable. 
+First, committee members try to execute the previous execution payload before constructing their inclusion list. This helps them see which transactions are invalid based on the poststate of the last block. Secondly, committee members are free to choose any inclusion rule that they believe best selects transactions that benefit from being in the inclusion list. For example, committee members could choose transactions based on how long they have been in the mempool, their priority fee, a combination of the two, or any other [heuristic](https://x.com/arindamsingh03/status/1838541552387264673?s=61) they believe is valuable. 
 
 FOCIL should be robust to an adversary [stuffing](https://ethresear.ch/t/fun-and-games-with-inclusion-lists/16557) the inclusion list with invalid transactions. For example, if all inclusion list committee members build their inclusion lists by selecting those transactions that pay the highest priority fee, then an adversary could send high-paying valid transactions in the mempool and invalidate them in the execution payload the inclusion list constrains. This attack would allow an adversary to stuff the inclusion lists for free.
 
-Using a diversity of inclusion rules would prevent this attack. If some committee members select transactions based on priority fees, whereas others choose transactions based on time in the mempool, stuffing the inclusion list becomes very difficult. To stuff a local inclusion list of a committee member that selects transactions based on time in the mempool, an adversary needs to control multiple slots in a row since it must ensure that transactions are valid in the mempool but would be invalidated in a block to prevent costs. Moreover, these inclusion rules would be local rules that a committee member or client could easily change.
+Using a diversity of inclusion rules would prevent this attack. If some committee members select transactions based on priority fees, whereas others choose transactions based on time in the mempool, stuffing the inclusion list becomes very difficult. To stuff a inclusion list of a committee member that selects transactions based on time in the mempool, an adversary needs to control multiple slots in a row since it must ensure that transactions are valid in the mempool but would be invalidated in a block to prevent costs. Moreover, these inclusion rules would be local rules that a committee member or client could easily change.
 
 ## Description
 
@@ -30,7 +35,7 @@ The aggregate inclusion list does not constrain the ordering of the execution pa
 
 - Inclusion list committee members could employ inclusion rules that prevent invalid transaction stuffing attacks.
 - FOCIL could enforce that other transactions in the execution payload may not invalidate transactions from the aggregate inclusion list.
-- Decreasing the time window in which it is certain who the next execution proposer is to such an extent that inclusion list committee members create local ILs before the next execution proposer is known.
+- Decreasing the time window in which it is certain who the next execution proposer is to such an extent that inclusion list committee members create ILs before the next execution proposer is known.
 
 ## Resources
 

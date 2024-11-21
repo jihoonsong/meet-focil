@@ -32,15 +32,21 @@ This gallery contains notes with problem statements of various subproblems relat
 
 <!-- Gallery -->
 <section>
-    <div class="section-title">
-        <h2><span>Problems</span></h2>
-    </div>
+    <div class="section-divider-top"></div>
     <div class="row listrecent">
         {% for post in paginator.posts %}
             {% include postcard.html %}
         {% endfor %}
     </div>
+    <div class="section-divider-bottom"></div>
 </section>
+
+## Open Problems {#open-problems}
+
+- [**FOCIL Transaction Fee Mechanism**](https://efdn.notion.site/FOCIL-Transaction-Fee-Mechanism-68c2a76c57af4e0c88057ded71983f8b): What is the best way to charge fees and distribute these fees for inclusion in the inclusion list? How should “best” be defined?
+- [**Compatibility with other protocol upgrades**](https://efdn.notion.site/Compatibility-with-other-protocol-upgrades-104d989555418062921ff19f2dd693cf): We need to assess the potential synergies and conflicts between FOCIL and other protocol upgrades like Account Abstraction (EIP-7702), ePBS (EIP-7732), PeerDAS, etc.
+- [**IL Size**](https://efdn.notion.site/IL-Size-104d9895554180acb8f1da65a546598b): Inclusion lists must likely be bounded in size to prevent excessive bandwidth usage. How do we determine the optimal size of the inclusion lists?
+- [**Multi-slot MEV Prevention via FOCIL**](https://efdn.notion.site/Multi-slot-MEV-Prevention-via-FOCIL-02df82ac72944ec2b4288aa53100c814): FOCIL enables multiple proposers to force include transactions into a block. What types of multi-slot MEV does this prevent?
 
 <!-- Pagination -->
 <!-- Draw all posts in one page for simplicity.
