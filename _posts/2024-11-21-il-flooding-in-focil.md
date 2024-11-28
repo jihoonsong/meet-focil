@@ -7,7 +7,7 @@ title: "IL flooding in FOCIL"
 publish_date: "Nov 21, 2024"
 thumbnail: "assets/thumbnails/il_flooding_in_focil.jpg"
 image: "assets/images/il_flooding_in_focil.png"
-excerpt: "Other transactions in the execution payload could invalidate transactions in inclusion lists. Invalid transactions should not be written on-chain because it would expose free data availability (DA). How is free DA prevented in FOCIL? How does FOCIL prevent an adversary stuffing the IL with invalid transactions?"
+excerpt: "This post explores potential mempool flooding attacks on FOCIL and discusses mitigation strategies."
 ---
 
 *Thanks to Thomas, Toni, Barnabe, @lighclient, Ansgar and the other FOCIL authors for comments and discussion*.
